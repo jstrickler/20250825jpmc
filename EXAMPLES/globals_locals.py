@@ -1,8 +1,8 @@
 from pprint import pprint  # import prettyprint function
 
 # global variables
-count = 42  
-animal = 'Wombat'
+COUNT = 42  
+ANIMAL = 'Wombat'
 
 def spam(fruit):  # function parameters are local
     knight = 'Lancelot'  # local variable
@@ -20,3 +20,8 @@ print()
 g = globals()
 g['color'] = "blue"  # create a new variable
 print("color:", color)
+
+g['bark'] = lambda: print("woof, woof")
+
+bark()
+print(f"{type(bark) = }")

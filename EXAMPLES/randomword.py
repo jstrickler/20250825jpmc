@@ -16,4 +16,4 @@ class RandomWord():
 if __name__ == '__main__':
     w = RandomWord()
     for _ in range(10):
-        print(w())
+        print(w()) # w.get_word()

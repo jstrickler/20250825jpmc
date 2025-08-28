@@ -17,11 +17,14 @@ MOVIE_TITLES = [
 ]
 
 def main():
-    with requests.Session() as session:
-        session.params.update({"apikey": OMDB_API_KEY})
+    # with requests.Session() as session1:
+    #     session2.params.update({"apikey": OTHER_OMDB_API_KEY})
+    with requests.Session() as session2:
+        # session2 = mydecorator(session2)(...)
+        session2.params.update({"apikey": OMDB_API_KEY})
         for movie_title in MOVIE_TITLES:
             params = {'t': movie_title}
-            response = session.get(OMDB_URL, params=params)
+            response = session2.get(OMDB_URL, params=params, timeout=5)
             if response.status_code == requests.codes.OK:
                 raw_data = response.json()
                 print(f"raw_data['Title']: {raw_data['Title']}")

@@ -3,7 +3,7 @@ class TrimmedFile:
         self._file_in = open(file_name)
 
     def __iter__(self):  
-        # An iterator must implement iter(), which must return an iterator. 
+        # An iterable must implement iter(), which must return an iterator. 
         # Typically it returns 'self', as the generator IS the iterator
         return self
 
@@ -11,6 +11,7 @@ class TrimmedFile:
         line = self._file_in.readline()
         if line == '':
             raise StopIteration  # Raise StopIteration when there are no more values to generate
+            self._file_in.close()
         else:
             return line.rstrip('\n\r')  # The actual work of this iterator -- remove the end-of-line char(s)
 

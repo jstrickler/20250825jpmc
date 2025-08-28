@@ -8,6 +8,8 @@ set party = "SURPRISE!"
 where termnum = ?
 '''  # ? is SQLite3 placeholder for SQL statement parameter; different DBMSs use different placeholders
 
+# OracleDB:   :4  :first_name
+
 PARTY_QUERY = """
 select termnum, firstname, lastname, party
 from presidents
